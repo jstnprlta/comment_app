@@ -25,12 +25,42 @@ Array.from({ length: 10 }).forEach(() => {
 const App = () => {
   return (
     <div className="ui container comments">
-      <CommentDetail author="Luis"/>
-      <CommentDetail author="Bibi"/>
-      <CommentDetail author="Jose"/>
-      <CommentDetail author="Erika"/>
-      <CommentDetail author="Justin"/>
-      <CommentDetail author="May"/>
+      <CommentDetail
+        author="Luis"
+        timeAgo="Today at 1pm"
+        comment="is everyone going to Texas De Brazil?"
+        avatar={faker.image.avatar()}
+      />
+      <CommentDetail
+        author="Bibi"
+        timeAgo="Today at 1:25pm"
+        comment="I am for sure!"
+        avatar={faker.image.avatar()}
+      />
+      <CommentDetail
+        author="Jose"
+        timeAgo="Today at 1:27pm"
+        comment="Not going to miss out on that good Food Homie!"
+        avatar={faker.image.avatar()}
+      />
+      <CommentDetail
+        author="Erika"
+        timeAgo="Today at 1:40pm"
+        comment="can't wait!"
+        avatar={faker.image.avatar()}
+      />
+      <CommentDetail
+        author="Justin"
+        timeAgo="Today at 1:42pm"
+        comment=" Its going to be Fire!"
+        avatar={faker.image.avatar()}
+      />
+      <CommentDetail
+        author="May"
+        timeAgo="Today at 1:50pm"
+        comment="Excited to go Friends!"
+        avatar={faker.image.avatar()}
+      />
     </div>
   );
 };
