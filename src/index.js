@@ -1,17 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDom from "react-dom";
+import { faker } from "@faker-js/faker";
+// import { faker } from '@faker-js/faker/locale/de';
+import CommentDetail from "./CommentDetail";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export const USERS: User[] = [];
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export function createRandomUser(): User {
+  return {
+    userId: faker.datatype.uuid(),
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    avatar: faker.image.avatar(),
+    password: faker.internet.password(),
+    birthdate: faker.date.birthdate(),
+    registeredAt: faker.date.past(),
+  };
+}
+
+Array.from({ length: 10 }).forEach(() => {
+  USERS.push(createRandomUser());
+});
+
+const App = () => {
+  return (
+    <div className="ui container comments">
+      <CommentDetail author="Luis"/>
+      <CommentDetail author="Bibi"/>
+      <CommentDetail author="Jose"/>
+      <CommentDetail author="Erika"/>
+      <CommentDetail author="Justin"/>
+      <CommentDetail author="May"/>
+    </div>
+  );
+};
+
+ReactDom.render(<App />, document.querySelector("#root"));
