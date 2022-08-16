@@ -3,6 +3,7 @@ import ReactDom from "react-dom";
 import { faker } from "@faker-js/faker";
 // import { faker } from '@faker-js/faker/locale/de';
 import CommentDetail from "./CommentDetail";
+import ApprovalCard from "./ApprovalCard";
 
 export const USERS: User[] = [];
 
@@ -25,12 +26,14 @@ Array.from({ length: 10 }).forEach(() => {
 const App = () => {
   return (
     <div className="ui container comments">
+      <ApprovalCard>
       <CommentDetail
         author="Luis"
         timeAgo="Today at 1pm"
         comment="is everyone going to Texas De Brazil?"
         avatar={faker.image.avatar()}
       />
+      <ApprovalCard/>
       <CommentDetail
         author="Bibi"
         timeAgo="Today at 1:25pm"
